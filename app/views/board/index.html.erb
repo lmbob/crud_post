@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Bulletin Board</h1>
+    <h2>Share Your Ideas!</h2>
+
+    <a href='board/new'>글쓰기</a> <br> <hr/>
+    <% @list_post.each do |p| %>
+
+        Title : <a href='/board/show/<%= p.id%>'> <%= p.title %> </a> <br>
+        Author : <%= p.editor %> <br>
+        <hr/>
+    <% end %>
+</div>
