@@ -8,6 +8,7 @@ class BoardController < ApplicationController
 
   def show
     @show_post = Post.find(params[:p_id])
+    @show_reply = @show_post.replies
   end
 
   def create

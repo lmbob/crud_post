@@ -8,3 +8,29 @@
     <a href='/board/delete/<%= @show_post.id%>'>[Delete]</a>
     <a href='/board/edit/<%= @show_post.id%>'>[Edit]</a>
 </div>
+
+<h1>댓글</h1>
+    <form action="/comment/reply_create" method="POST">
+      <div class="form-group">
+        <label for="exampleInputPassword1">post_id</label>
+        <input type="hidden" name="p_id" class="form-control" id="exampleInputPassword1" value="<%= @show_post.id%>" >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">editor</label>
+        <input type="text" name="editor" class="form-control" id="exampleInputPassword1" placeholder="editor">
+      </div>
+      <div class="form-group">
+          <label for="comment">content:</label>
+          <textarea class="form-control" name="content" rows="2" id="comment"></textarea>
+        </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+</div>
+
+<% @show_reply.each do |r| %>
+ Comment # : <%= r.id %> <br>
+ Editor : <%= r.editor %> <br>
+ Comment : <%= r.content %> <br>
+ <a href="/comment/reply_delete/<%= r.id %>">[삭제]</a>
+ <hr/>
+<% end %>
